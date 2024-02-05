@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function fetch_data(url) {
+      return fetch(url).then((res) => {
+        return res.json().then((result) => {
+          return result;
+        });
+      });
+    }
+    const product_url = " https://fakestoreapi.com/products";
+    const json_fake = "https://jsonplaceholder.typicode.com/todos/";
+    const dummy_fake = "https://dummyjson.com/products";
+    const reqres_fake = "https://reqres.in/api/users";
+
+    fetch_data(product_url).then((res) => {
+      console.log(res);
+    });
+
+    fetch_data(json_fake).then((res) => {
+      console.log(res);
+    });
+
+    fetch_data(dummy_fake).then((res) => {
+      console.log(res.products);
+    });
+    
+    fetch_data(reqres_fake).then((res) => {
+      console.log(res.data);
+    });
+  </script>
+</body>
+
+</html>
